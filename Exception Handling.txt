@@ -1,0 +1,143 @@
+An unwanted and unexpected event that disturbs normal flow of the program is called exception.
+
+examples 
+--------
+Sleeping Exception
+TyrePunchered Exception
+File not found exception 
+...
+
+it is highly recommended to handle exceptions. the main Objective of Exception handling is graceful(normal) termination of the program.
+
+what is the meaning of exception handling
+-----------------------------------------
+Exception handling does not mean repairing an exception. we have to design alternative way to continue rest of the program normally this way of defining alternative is nothing but exception handling.
+
+example:
+---------
+suppose our programming requirement to read data from remote file locating at London at runtime file is not available our program should be terminated abnormally.
+
+we have to provide a local file to continue rest of the program normally this way of defining alternative is nothing but exception handling.
+
+what are Errors
+----------------
+it represents serious problems that application should not try to catch or handle. they indicate issue with jvm or system level problems that are beyond control of the application.
+
+characteristics of errors
+--------------------------
+occur at runtime 
+indicates serious system-level issues.
+should not be caught or handled by application code
+extends the error class.
+examples: OutOfmemoryError, StackOverflowError, VirtualMachineError
+
+what are the difference between Exceptions?
+==========================================
+exceptions are events that occur during program execution and disturbs the normal flow of instructions, they represent conditions that applications reasonably catch and handle.
+
+characteristics of Exception
+-----------------------------
+can occur at compile time or runtime
+can be anticipated and handled by developers.
+Extend the exception class.
+allow graceful error handling and recovery
+examples: IOException, SQLException, NumberFormatException .
+
+Types of Exceptions
+-------------------
+Java Exceptions are categorized into two types that 2 types are checked and unchecked Exceptions.
+
+1. CheckedExceptions
+----------------------
+definition: Exceptions that are checked by compile time that compiler ensure that these exceptions either handled or declared.
+
+characteristics 
+----------------
+1. must be handled by using try-catch or declaring using throws.
+2. checked by the compiler at compiletime
+3. extends Exception class but not RuntimeException.
+4. represent recoverable conditions.
+
+Common checked exception
+------------------------
+Class not found exception--> class loading issues.
+InteruptedException--------> Thread Interuptions.
+CloneNotSupportedException-> Object cloning Issues.
+NoSuchElementException-----> method reflection issues.
+InstantiationException-----> Object Creation issues.
+
+2. UncheckedExceptions
+----------------------
+definition: exception that occur during runtime and are not checked by compiler
+
+characteristics 
+----------------
+1. no compile time checking required
+2. extend RuntimeException class
+3. usually indicate programming errors.
+4. can be avoided with proper coding practices
+
+common uncheckedExceptions
+--------------------------
+1.NullPointerException--> accessing null references.
+2.ArrayIndexOutOfBoundException-->invalid array accesses.
+3. IllegalArgumentExcption--> invalidMethod argument
+4. NumberFormatExcception-->invalid number conversion.
+5. ClassCastException-->invalid type casting
+
+Note: Runtime Exception and its child classes, errors and its child classes are unchecked and all the remaining are considered as checked exceptions.
+
+Note: whether exception is checked or unchecked compulsory it should be occur at runtime only there is no chance of occurring any exception at compiletime.
+
+partially checked vs fully checked
+----------------------------------
+a checked exception is said to be fully checked if and only if some of its child classes are checked.
+
+example
+--------
+1)IOException
+2)InteruptedException
+
+a checked exception is said to partially checked if and only if some of it s child classes are unchecked.
+
+example
+-------
+Exception class
+
+key classes in exception hierarchy
+----------------------------------
+
+1. Throwable class
+------------------
+root class for all exception and errors.
+
+2. contains methods like getMessage(), printStackTrace(), getcause();
+all exceptions must extend Throwable(directly or indirectly)
+
+Error Class
+------------
+represent serious system-level problems.
+should not be caught by applications
+indicates condition that reasonable applications should not try to catch
+
+Exception Class
+---------------
+base level for all recoverable exceptions
+divide into checked and unchecked exceptions
+application should handle these exceptions
+
+RuntimeException class
+-----------------------
+Base class for unchecked exception
+indicates programming errors that could be avoided
+no compile-time checking required.
+
+keywords for exception handling
+================================
+exception handling in java uses 5 main keywords that work together to manage runtime error gracefully.
+
+1. try --> contains code that might throw an exception
+2. catch --> handles specific types of exception
+3. finally --> executed code regardless of whether an exception occurs.
+4. throw --> explicitly throw an exception
+5. throws --> declares that a method might throw certain exception
